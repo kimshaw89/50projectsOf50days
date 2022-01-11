@@ -1,0 +1,112 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    /* 056 阴凉的水 */
+    background-image: linear-gradient(to right, #74ebd5 0%, #9face6 100%);
+}
+
+h2 {
+    position: absolute;
+    top: 20px;
+}
+
+/* 拖动条容器 */
+.range-container {
+    position: relative;
+}
+
+/* 拖动条 */
+input[type="range"] {
+    /* 取消webkit内核浏览器的range默认外观,一会要单独设置外观 */
+    -webkit-appearance: none;
+    margin: 20px 0;
+    width: 300px;
+}
+
+input[type="range"]:focus {
+    outline: none;
+}
+
+/* 拖动条进度 */
+input[type="range"]+label {
+    position: absolute;
+    top: -25px;
+    left: 110px;
+    padding: 5px 0;
+    width: 80px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, .5);
+}
+
+
+/* 分别设置各个浏览器的range滑动条的外观样式 */
+/* Chrome & Safari */
+input[type='range']::-webkit-slider-runnable-track {
+    background: purple;
+    border-radius: 4px;
+    width: 100%;
+    height: 10px;
+    cursor: pointer;
+}
+
+input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid purple;
+    margin-top: -7px;
+    cursor: pointer;
+}
+
+/* Firefox */
+input[type='range']::-moz-range-track {
+    background: purple;
+    border-radius: 4px;
+    width: 100%;
+    height: 13px;
+    cursor: pointer;
+}
+
+input[type='range']::-moz-range-thumb {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid purple;
+    margin-top: -7px;
+    cursor: pointer;
+}
+
+/* IE */
+input[type='range']::-ms-track {
+    background: purple;
+    border-radius: 4px;
+    width: 100%;
+    height: 13px;
+    cursor: pointer;
+}
+
+input[type='range']::-ms-thumb {
+    -webkit-appearance: none;
+    height: 24px;
+    width: 24px;
+    background: #fff;
+    border-radius: 50%;
+    border: 1px solid purple;
+    margin-top: -7px;
+    cursor: pointer;
+}

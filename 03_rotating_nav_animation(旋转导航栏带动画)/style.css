@@ -1,0 +1,183 @@
+/* 导入谷歌字体 */
+@import url('https://fonts.googleapis.com/css?family=Lato&display=swap');
+
+* {
+    /* 刚开始掉所有内外边距,会让文字挤在一起 */
+    /* margin: 0;
+    padding: 0; */
+    box-sizing: border-box;
+}
+
+/* 去小圆点 */
+li {
+    list-style-type: none;
+}
+
+/* 去下划线 */
+a {
+    text-decoration: none;
+}
+
+body {
+    margin: 0;
+    color: #222;
+    /* 设置 背景板 背景颜色 */
+    background-color: #333;
+    /* x 轴多余的隐藏,不然 会有进度条 */
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 50px;
+    /* 限制最小高度:动态高度比布局 */
+    min-height: 100vh;
+    /* 让页面铺满X轴 */
+    width: 100vw;
+    background-color: #fafafa;
+
+    /* 变形准备 */
+    transform-origin: left top;
+    transition: transform .5s linear;
+}
+
+/* 之后要旋转的角度 */
+.container.show-nav {
+    transform: rotate(-20deg);
+}
+
+/* 左上角半圆导航:先固定位置 */
+.circle-container {
+    position: fixed;
+    /* 位置刚好是 圆形的1/2,所以是个 1/4圆 */
+    top: -100px;
+    left: -100px;
+}
+
+/* 设置半圆 */
+.circle {
+    position: relative;
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    background-color: #33ccff;
+    /* 圆形旋转速度比页面更快,因为角度更大 */
+    transition: transform .2s linear;
+}
+
+/* 之后要旋转的角度 */
+.container.show-nav .circle {
+    transform: rotate(-70deg);
+}
+
+/* 导航栏中的按钮 */
+.circle button {
+    /* 设定位置,刚好在右下方 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    height: 100px;
+    border: 0;
+    font-size: 26px;
+    color: #fff;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+.circle button:focus {
+    outline: none;
+}
+
+.circle button#open {
+    left: 60%;
+}
+
+.circle button#close {
+    top: 60%;
+    /* 关键点:沿左上角旋转90度 */
+    transform-origin: top left;
+    transform: rotate(90deg);
+}
+
+/* 变形之后,底板上 的链接 */
+/* 关键点2:变形之后的选择器写法 */
+.container.show-nav+nav li {
+    /* 向右弹出,幅度由 子元素的transformX来调整 */
+    transform: translateX(0);
+    transition-delay: .3s;
+}
+
+/* 左下角文字链接 */
+nav {
+    position: fixed;
+    bottom: 40px;
+    left: 0;
+    z-index: 999;
+}
+
+nav ul {
+    padding-left: 30px;
+}
+
+nav ul li {
+    margin: 40px 0;
+    color: #fff;
+
+    transform: translateX(-100%);
+    transition: transform .4s ease-in;
+}
+
+/* 图标属性 */
+nav ul li i {
+    margin-right: 20px;
+    font-size: 20px;
+}
+
+/* 第二行 */
+nav ul li+li {
+    margin-left: 15px;
+    transform: translateX(-150%);
+}
+
+/* 第三行:利用递增的左边距,形成文字梯形 */
+nav ul li+li+li {
+    margin-left: 30px;
+    transform: translateX(-200%);
+}
+
+nav a {
+    color: #fafafa;
+    /* 悬停:延迟 */
+    transition: all .5s;
+}
+
+a:hover {
+    color: #ff7979;
+    /* font-weight: bold; */
+    /* 中文更适合:悬浮 斜体 */
+    font-style: italic;
+}
+
+/* 主体内容 */
+.content {
+    margin: 50px auto;
+    max-width: 1000px;
+}
+
+.content h1 {
+    margin: 0;
+}
+
+.content small {
+    color: #555;
+    font-style: italic;
+}
+
+.conntent img {
+    /* 避免图 撑大页面 */
+    max-width: 100%;
+}
+
+.content p {
+    color: #333;
+    line-height: 1.5;
+}

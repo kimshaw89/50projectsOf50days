@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    /* 居中对齐 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    overflow: hidden;
+}
+
+.bg {
+    /* 为什么 不这么定位 右边会空一块 */
+    /* 也许是为了 拉伸图片? */
+    position: absolute;
+    top: -30px;
+    left: -30px;
+    /* calc运算符+ 左右必须要有空格 */
+    height: calc(100vh + 60px);
+    width: calc(100vw + 60px);
+    /* center/cover不知道那个属性的 */
+    background: no-repeat center center/cover url('https://tse1-mm.cn.bing.net/th/id/R-C.96ea61df005ab93e565fd78f61f876cb?rik=iMuOPq332t3lsg&riu=http%3a%2f%2fi1.hdslb.com%2fbfs%2farchive%2fa0e1f12122d5f58c54b042af22387f87c8aaeb86.jpg&ehk=VlAvjmgbVYlkxPeQn0%2boNc5kTmNse%2fbBXKxp6GzkDlw%3d&risl=&pid=ImgRaw&r=0');
+    filter: blur(0px);
+    /* 为了让文字显示在上面 */
+    z-index: -1;
+}
+
+.loading-text {
+    font-size: 50px;
+    color: #fff;
+}

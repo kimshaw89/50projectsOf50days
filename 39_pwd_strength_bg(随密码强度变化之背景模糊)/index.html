@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- 引入国内 tailwind -->
+    <link href="https://cdn.bootcdn.net/ajax/libs/tailwindcss/2.2.7/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>password Strength Background 随密码强度变化之背景模糊</title>
+</head>
+
+<body>
+    <!-- 本章应该是为了熟悉了解 tailwindcss这个css框架,翻译过来应该叫 顺风css -->
+    <div class="background" id="background"></div>
+    <!-- 白色背景/边框圆角.25rem/内边距2.5rem(单位0.25rem)/文字居中/盒子阴影 -->
+    <div class="bg-white rounded p-10 text-center shadow-md">
+        <!-- 文字大小1.875rem/行距2.25rem -->
+        <h1 class="text-3xl">图片随密码强度增加而清晰</h1>
+        <!-- 文字大小0.875rem/行距1.25rem/文字颜色及清晰度-->
+        <p class="text-sm text-gray-700">改变密码可看到变化</p>
+        <!-- 上下外边距1rem(单位.25rem)/文字左对齐 -->
+        <div class="my-4 text-left">
+            <!-- 文字颜色及清晰度 -->
+            <label for="email" class="text-gray-900">Email:</label>
+            <!-- 带边框/块元素/宽度100%/内边距.5rem/上外边距.5rem/外边框圆角 -->
+            <input type="email" class="border block w-full p-2 mt-2 rounded" id="email" placeholder="Enter Email">
+        </div>
+
+        <!-- 同上 -->
+        <div class="my-4 text-left">
+            <label for="password" class="text-gray-900">Password:</label>
+            <input type="password" class="border block w-full p-2 mt-2 rounded" id="password" placeholder="Enter Password">
+        </div>
+
+        <!-- 黑色背景/字体白色/上下内边距.5rem/下外边距1rem/内联元素/100%宽度/元角边框 -->
+        <button class="bg-black text-white py-2 mt-4 inline-block w-full rounded" type="submit">
+            提交
+        </button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

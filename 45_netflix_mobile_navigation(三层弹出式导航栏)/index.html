@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Netflix Mobile Navigation 三层弹出式导航栏</title>
+</head>
+
+<body>
+    <!-- 导航栏弹出按键 -->
+    <button class="nav-btn open-btn">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- logo -->
+    <img src="https://logos-download.com/wp-content/uploads/2016/03/Netflix_Logo_2014-700x188.png" alt="logo"
+        class="logo">
+
+    <p class="text">移动端导航栏</p>
+
+    <!-- 导航栏 -->
+    <!-- 关键点:导航栏分三层:黑(红(白(内容))) -->
+    <div class="nav nav-black">
+        <div class="nav nav-red">
+            <div class="nav nav-white">
+                <button class="nav-btn close-btn">
+                    <i class="fas fa-times"></i>
+                </button>
+
+                <!-- logo -->
+                <img src="https://logos-download.com/wp-content/uploads/2016/03/Netflix_Logo_2014-700x188.png"
+                    alt="logo" class="logo">
+
+                <!-- 导航栏子选项 -->
+                <ul class="list">
+                    <li><a href="#">队伍</a></li>
+                    <li><a href="#">位置</a></li>
+                    <li><a href="#">我的Netflix</a></li>
+                    <li>
+                        <ul>
+                            <li><a href="#">Netflix文化备忘录</a></li>
+                            <li><a href="#">工作与生活的平衡</a></li>
+                            <li><a href="#">多元及包容性</a></li>
+                            <li><a href="#">博客</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

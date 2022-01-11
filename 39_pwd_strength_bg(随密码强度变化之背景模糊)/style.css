@@ -1,0 +1,25 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.background {
+    position: absolute;
+    top: -20px;
+    right: -20px;
+    bottom: -20px;
+    left: -20px;
+    background: url('https://tse1-mm.cn.bing.net/th/id/R-C.8af364554924bd7ceedc247f70932a5b?rik=7OvHwyEjqXG8hA&riu=http%3a%2f%2fwww.deskcar.com%2fdesktop%2ffengjing%2f2016412170303%2f7.jpg&ehk=RKXNV3kHz%2fEE4qVPRbRV5ZCIe%2bpnLNjjOo%2foc0XyKOk%3d&risl=&pid=ImgRaw&r=0') 
+    no-repeat center center/cover;
+    filter: blur(20px);
+    z-index: -1;
+}

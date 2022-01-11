@@ -1,0 +1,156 @@
+* {
+    box-sizing: border-box;
+}
+
+a {
+    color: #fff;
+}
+
+body {
+    overflow: hidden;
+    margin: 0;
+    height: 100h;
+    text-align: center;
+    color: #fff;
+    background-color: steelblue;
+}
+
+h1 {
+    line-height: 1.4;
+    letter-spacing: 1rem;
+}
+
+.btn {
+    padding: 1rem 2rem;
+    color: steelblue;
+    background-color: #fff;
+    border: 0;
+    cursor: pointer;
+}
+
+.btn:hover {
+    opacity: .9;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(.98);
+}
+
+.screen {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+    transition:margin .5s ease-out;
+}
+
+/* 关键点:利用上外边距来 切换界面 */
+.screen.up {
+    margin-top: -100vh;
+}
+
+/* 选择界面 ul:虫子列表 */
+.insects-list {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+    padding: 0;
+    list-style-type: none;
+}
+
+.insects-list li {
+    margin: 10px;
+}
+
+/* 虫子按钮 */
+.choose-insect-btn {
+    width: 150px;
+    height: 150px;
+    color: #fff;
+    background-color: transparent;
+    border: solid 2px #fff;
+    cursor: pointer;
+}
+
+.choose-insect-btn:hover {
+    color: steelblue;
+    background-color: #fff;
+}
+
+.choose-insect-btn:active {
+    background-color: rgba(255,255,255,.5);
+}
+
+.choose-insect-btn img {
+    width: 100px;
+    height: 100px;
+    object-fit: contain;
+}
+
+/* 游戏界面 */
+.game-container {
+    position: relative;
+}
+
+.time,
+.score {
+    position: absolute;
+    top: 20px;
+}
+
+.time {
+    left: 20px;
+}
+
+.score {
+    right: 20px;
+}
+
+/* 最后的提示信息 */
+.message {
+    /* 绝对居中 */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    padding: 20px;
+    width: 100%;
+    line-height: 1.7;
+    background-color: rgba(0,0,0,.5);
+    opacity: 0;
+    z-index: 99;
+    transform: translate(-50%,-150%);
+    transition: transform .4s ease-in;
+}
+
+.message.visible {
+    /* 显示方式:从上到下,逐渐浮现 */
+    transform: translate(-50%,150%);
+    opacity: 1;
+}
+
+.insect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    transform: translate(-50%,-50%) scale(1);
+    transform: transform .3s ease-in-out;
+}
+
+.insect.caught {
+    /* 捕捉到虫子,直接变小 */
+    transform: translate(-50%,-50%) scale(0);
+}
+
+.insect img {
+    width: 100px;
+    height: 100px;
+}

@@ -1,0 +1,61 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: steelblue;
+}
+
+h2 {
+    position: absolute;
+    top: 100px;
+    left: auto;
+    color: #fff;
+}
+
+.empty {
+    margin: 10px;
+    width: 150px;
+    height: 150px;
+    background-color: #fff;
+    border: solid 3px #111;
+}
+
+/* 关键点 */
+/* 图片 */
+.fill {
+    width: 145px;
+    height: 145px;
+    background-image: url('https://source.unsplash.com/random/150x150');
+    cursor: pointer;
+}
+
+/* 图片拿在手时 */
+.hold {
+    border: solid 5px #ccc;
+}
+
+/* 悬停时,处于下面的边框 */
+.hovered {
+    /* 外边框为虚线 */
+    border-style: dashed;
+    border-color: #fff;
+    background-color: #666;
+}
+
+@media (max-width:800px) {
+    body {
+        flex-direction: column;
+    }
+
+    h2 {
+        top: 5px;
+        margin: 0;
+    }
+}

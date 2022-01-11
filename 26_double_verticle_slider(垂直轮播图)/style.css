@@ -1,0 +1,107 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100vh;
+}
+
+/* 容器 */
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+/* 左边文字 */
+.left-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 35%;
+    height: 100%;
+    transition: transform .5s ease-in-out;
+}
+
+/* 左边容器中每一个选项都是 垂直居中弹性布局 */
+.left-slide>div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #fff;
+}
+
+.left-slide h1 {
+    /* 整体网上提 */
+    margin-top: -30px;
+    margin-bottom: 10px;
+    /* font-size: 40px; */
+}
+
+/* 右边图片 */
+.right-slide {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%;
+    height: 100%;
+    transition: transform .5s ease-in-out;
+}
+
+/* 每一张图片 */
+.right-slide>div {
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+}
+
+/* 所有按钮 */
+button {
+    padding: 15px;
+    border: 0;
+    font-size: 16px;
+    color: #aaa;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+button:hover {
+    color: #222;
+}
+
+button:focus {
+    outline: none;
+}
+
+.slider-container .action-buttons button {
+    position: absolute;
+    left: 35%;
+    top: 50%;
+    z-index: 100;
+}
+
+/* 上 */
+.slider-container .action-buttons .up-button {
+    /* 右上,右下圆角边框 */
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+
+    transform: translateY(-100%);
+}
+
+/* 下 */
+.slider-container .action-buttons .down-button {
+    /* 左上,左下圆角边框 */
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+
+    transform: translateX(-100%);
+}

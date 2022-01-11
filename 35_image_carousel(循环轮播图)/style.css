@@ -1,0 +1,65 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+img {
+    width: 220px;
+    height: 881px;
+    object-fit: contain;
+}
+
+/* 轮播图容器 */
+.carousel { 
+    overflow: hidden;
+    width: 220px;
+    height: 870px;
+    box-shadow: 5px 5px 10px rgba(0,0,0,.3);
+}
+
+/* 图片容器 */
+.image-container {
+    display: flex;
+    transform: translateX(0);
+    transition: transform .5s ease-in-out;
+}
+
+/* 按钮容器 */
+.buttons-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.buttons-container .btn {
+    background-color: transparent;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform .3s;
+}
+
+.btn i {
+    font-size: 2rem;
+    color: #999;
+}
+
+.btn:active i{
+    transform: scale(.9);
+}
+
+.btn:hover {
+    opacity: .5;
+}

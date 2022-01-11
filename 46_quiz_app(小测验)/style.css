@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    /* 106 幸福的晚会 */
+    background-image: linear-gradient(to top, #4481eb 0%, #04befe 100%);
+}
+
+.quiz-container {
+    /* overflow: hidden; */
+    width: 600px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px 5px rgba(0, 0, 0, .3);
+}
+
+.quiz-header {
+    padding: 4rem;
+}
+
+/* 题目 */
+.quiz-header h2 {
+    margin: 0;
+    padding: 40px;
+    text-align: center;
+}
+
+/* 回答 ul */
+.quiz-header ul {
+    padding: 0;
+    list-style: none;
+}
+
+.quiz-header ul li {
+    margin: 1rem 0;
+    font-size: 1rem;
+}
+
+.quiz-header ul li label{
+    cursor: pointer;
+}
+
+/* 提交按钮 */
+button {
+    display: block;
+    padding: 1.2rem;
+    width: 100%;
+    font-size: 1rem;
+    color: #fff;
+    background-color: lightcoral;
+    border: 0;
+    border-radius: 0  0 10px 10px;
+    cursor: pointer;
+}
+
+button:focus {
+    outline: none;
+    opacity: .5;
+}
+
+button:hover {
+    opacity: .5;
+}

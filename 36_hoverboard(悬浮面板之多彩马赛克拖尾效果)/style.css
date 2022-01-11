@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    background-color: #111;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 允许换行 */
+    flex-wrap: wrap;
+    max-width: 400px;
+}
+
+/* 小正方形 */
+.container .square {
+    margin: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: #1d1d1d;
+    /* 关键点:小方块有朦胧感的关键就是 盒子阴影 */
+    box-shadow: 0 0 2px #000;
+    transition:2s ease;
+}
+
+.square:hover {
+    /* 过度效果持续时间 */
+    transition-duration: 0s;
+}

@@ -1,0 +1,70 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    /* 139 活力的好心情 */
+    background-image: linear-gradient(to right, #0acffe 0%, #495aff 100%);
+}
+
+h1 {
+    letter-spacing: .3rem;
+}
+
+/* 卡片容器 */
+.poke-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+/* 卡片 */
+.pokemon {
+    margin: 10px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-sizing: 0 3px 15px rgba(100, 100, 100, .3);
+    text-align: center;
+}
+
+/* 图片容器 */
+.pokemon .img-container {
+    width: 120px;
+    height: 120px;
+    background-color: rgba(255, 255, 255, .7);
+    border-radius: 50%;
+    text-align: center;
+}
+
+.pokemon .img-container img {
+    margin-top: 20px;
+    max-width: 90%;
+}
+
+/* 详情信息 */
+.pokemon .info {
+    margin-top: 20px;
+}
+
+/* 编号 */
+.pokemon .info .number {
+    padding: 5px 10px;
+    font-size: .8rem;
+    background-color: rgba(0,0,0,.1);
+    border-radius: 10px;
+}
+
+/* 名字 */
+.pokemon .info .name {
+    margin: .5rem 0 .25rem;
+    letter-spacing: 1px;
+}

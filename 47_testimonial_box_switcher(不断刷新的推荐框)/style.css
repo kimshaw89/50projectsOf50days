@@ -1,0 +1,101 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    padding: 10px;
+}
+
+.testimonial-container {
+    position: relative;
+    margin: 20px auto;
+    padding: 50px 80px;
+    max-width: 768px;
+    color: #fff;
+    background-color: royalblue;
+    border-radius: 15px;
+}
+
+/* 双引号 */
+.fa-quote {
+    position: absolute;
+    top: 70px;
+    font-size: 28px;
+    color: rgba(255, 255, 255, .3);
+}
+
+/* 左引号 */
+.fa-quote-left {
+    right: 40px;
+}
+
+/* 右引号 */
+.fa-quote-right {
+    left: 40px;
+}
+
+.testimonial {
+    text-align: center;
+    line-height: 28px;
+}
+
+/* 作者 */
+.user {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 头像 */
+.user .user-image {
+    width: 75px;
+    height: 75px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* 作者详细介绍 */
+.user .user-details {
+    margin-left: 10px;
+}
+
+.user .username {
+    margin: 0;
+}
+
+.user .role {
+    margin: 10px 0;
+}
+
+/* 进度条 */
+/* 关键点: 线性增长10s,原点在左,通过关键帧scaleX增长百分比 */
+.progress-bar {
+    width: 100%;
+    height: 4px;
+    background-color: #fff;
+    animation: grow 10s linear infinite;
+    transform-origin: left;
+}
+
+@keyframes grow {
+    from {
+        transform: scaleX(0);
+    }
+}
+
+@media (max-width:768px) {
+    .testimonial-container {
+        padding: 20px 30px;
+    }
+
+    .fa-quote {
+        display: none;
+    }
+}

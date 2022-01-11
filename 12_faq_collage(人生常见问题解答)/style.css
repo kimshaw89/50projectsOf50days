@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css?family=Muli&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Muli', sans-serif;
+    background-image: linear-gradient(-225deg, #5D9FFF 0%, #B8DCFF 48%, #6BBBFF 100%);
+}
+
+h1 {
+    margin: 50px 0 30px;
+    text-align: center;
+}
+
+.faq-container {
+    /* 自动居中 */
+    margin: 0 auto;
+    max-width: 600px;
+}
+
+.faq {
+    position: relative;
+    margin: 20px 0;
+    padding: 10px 30px;
+    overflow: hidden;
+
+    background-color: rgba(0, 0, 0, .1);
+    border: solid 1px #B8DCFF;
+    border-radius: 10px;
+    /* 后期变形,先设置好参数 */
+    transition: .5s ease;
+}
+
+.faq.active {
+    background-color: #fff;
+    box-shadow: 0px 3px 6px rgba(0, 0, 0, .1), 0px 3px 6px rgba(0, 0, 0, .1);
+}
+
+/* 重点:双向镜面花纹 */
+.faq.active::before,
+.faq.active::after {
+    content: '\f075';
+    /* 花纹尽量遮盖文字 */
+    /* 更不能遮盖按钮,不然按钮会失灵 */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    color: aquamarine;
+    font-family: 'Font Awesome 5 Free';
+    font-size: 7rem;
+    opacity: .2;
+
+}
+
+/* 镜面花纹 */
+.faq.active::after {
+    top: -20px;
+    left: -20px;
+    color: aqua;
+    /* y轴旋转半圈:即 镜像 */
+    transform: rotateY(180deg);
+}
+
+h3.faq-title {
+    /* 要给右边的按钮留位置 */
+    margin-right: 35px;
+}
+
+p.faq-text {
+    /* 事先隐藏答案 */
+    display: none;
+    margin-top: 30px;
+}
+
+/* 激活显示答案 */
+.faq.active .faq-text {
+    display: block;
+}
+
+button.faq-toggle {
+    /* 让按钮里的图标 垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    width: 30px;
+    height: 30px;
+    /* 固定按钮于右上角 */
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    font-size: 16px;
+    /* 按钮变圆形 */
+    border: 0;
+    border-radius: 50%;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+button.faq-toggle:focus {
+    outline: 0;
+}
+/* 激活时, 显示 按钮背景色 */
+.faq.active .faq-toggle{
+    background-color: #B8DCFF;
+}
+
+/* 未激活时,关闭按钮 隐藏 */
+.faq-toggle .fa-times {
+    display: none;
+}
+
+/* 激活时,下拉按钮 隐藏 */
+.faq.active .faq-toggle .fa-chevron-down {
+    display: none;
+}
+
+/* 激活时,关闭按钮 显示 */
+.faq.active .faq-toggle .fa-times {
+    display: block;
+    color: #fff;
+}

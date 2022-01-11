@@ -1,0 +1,127 @@
+:root {
+    --line-border-empty: #e0e0e0;
+    --line-border-fill: #3498db;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    /* 弹性布局:垂直居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 100vh;
+    background-color: #f6f7fb;
+    overflow: hidden;
+}
+
+.container {
+    /* 文字居中对齐 */
+    text-align: center;
+}
+
+/* 进度条容器 */
+.progress-container {
+    /* 弹性布局:沿主轴 两边贴边,剩下平分 */
+    display: flex;
+    justify-content: space-between;
+
+    position: relative;
+    margin-bottom: 30px;
+    max-width: 100%;
+    width: 350px;
+}
+
+/* 空白进度条 */
+.progress-container:before {
+    content: '';
+    background-color: var(--line-border-empty);
+
+    /* 垂直居中 */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    height: 4px;
+    width: 100%;
+
+    /* z坐标为负,让其被数字圆圈压住 */
+    z-index: -1;
+}
+
+/* 进度条 */
+.progress {
+    /* 与空白进度条一致,垂直居中 */
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+
+    height: 4px;
+    width: 0%;
+
+    /* 填充色为 蓝 */
+    background-color: var(--line-border-fill);
+
+    transition: .4s ease;
+    /* 负z值,使其被 圆圈数字压住 */
+    z-index: -1;
+}
+
+.circle {
+    /* 让圆圈中的数字居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    height: 30px;
+    width: 30px;
+
+    border: 3px solid var(--line-border-empty);
+    border-radius: 50%;
+
+    color: #999;
+    background-color: #fff;
+
+    transition: .4s ease;
+}
+
+.circle.active {
+    border-color: var(--line-border-fill);
+}
+
+.btn {
+    margin: 5px;
+    padding: 8px 30px;
+
+    border: 0;
+    border-radius: 6px;
+
+    font-size: 14px;
+    color: #fff;
+    background-color: var(--line-border-fill);
+
+    cursor: pointer;
+}
+
+/* 按下按钮,缩小字体 */
+.btn:active {
+    transform: scale(.98);
+}
+
+/* 按钮聚焦时,轮廓线为0 */
+.btn:focus {
+    outline: 0;
+}
+
+/* 按钮被禁时的样式 */
+.btn:disabled {
+    background-color: var(--line-border-empty);
+    cursor: not-allowed;
+}

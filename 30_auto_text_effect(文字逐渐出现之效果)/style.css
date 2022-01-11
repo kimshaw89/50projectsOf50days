@@ -1,0 +1,36 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    /* 007 阳光明媚的早晨 */
+    background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+}
+
+/* 调节速度 */
+div {
+    position: absolute;
+    bottom: 20px;
+    padding: 10px 20px;
+    font-size: 18px;
+    background: rgba(0, 0, 0, .1);
+}
+
+input {
+    padding: 5px;
+    width: 50px;
+    font-size: 18px;
+    text-align: center;
+    border: 0;
+}
+
+input:focus {
+    outline: none;
+}

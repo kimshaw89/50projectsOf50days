@@ -1,0 +1,125 @@
+* {
+    box-sizing: border-box;
+}
+
+li {
+    list-style-type: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    color: #fff;
+    /* 045 山脊里的洞 */
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.15) 0%, rgba(0, 0, 0, 0.15) 100%), radial-gradient(at top center, rgba(255, 255, 255, 0.40) 0%, rgba(0, 0, 0, 0.40) 120%) #989898;
+    background-blend-mode: multiply, multiply;
+}
+
+.user-form {
+    width: 100%;
+    max-width: 700px;
+}
+
+.user-form input {
+    display: block;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #fff;
+    background-color: #999;
+    border: 0;
+    border-radius: 5px;
+    width: 100%;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1), 0 15px 40px rgba(0, 0, 0, .1);
+}
+
+.user-form input::placeholder {
+    color: #666;
+}
+
+.user-form input:focus {
+    outline: none;
+}
+
+/* 请求回来的数据 */
+.card {
+    display: flex;
+    margin: 0 1.5rem;
+    padding: 3rem;
+    max-width: 800px;
+    background-color: #999;
+    border-radius: 20px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1), 0 15px 40px rgba(0, 0, 0, .1);
+}
+
+/* 头像 */
+.avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: solid 10px #333;
+}
+
+/* 个人信息 */
+.user-info {
+    margin-left: 2rem;
+    color: #eee;
+}
+
+/* 用户名 */
+.user-info h2 {
+    margin-top: 0;
+}
+
+/* 具体信息栏 */
+.user-info ul {
+    /* 两边贴边 */
+    display: flex;
+    justify-content: space-between;
+    padding: 0;
+    max-width: 400px;
+}
+
+.user-info ul li {
+    /* 垂直居中 */
+    display: flex;
+    margin-right: .5rem;
+    align-items: center;
+}
+
+.user-info ul li strong {
+    margin-left: .5rem;
+    font-size: .9rem;
+}
+
+/* 仓库:a */
+.repo {
+    display: inline-block;
+    margin-right: .5rem;
+    margin-bottom: .5rem;
+    padding: .25rem .5rem;
+    font-size: .7rem;
+    color: #fff;
+    background-color: #999;
+}
+
+/* 当宽度只有500px时,个人信息改为垂直居中 */
+@media (max-width:500px) {
+    .card {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .user-form {
+        max-width: 400px;
+    }
+}

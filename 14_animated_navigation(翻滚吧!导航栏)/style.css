@@ -1,0 +1,121 @@
+/* @import url('https://fonts.googleapis.com/css?family=Muli&display=swap'); */
+
+* {
+    box-sizing: border-box;
+}
+
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    /* 水平居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* 不去掉外边距,会有下拉条 */
+    margin: 0;
+    /* 天空有些阴霾 */
+    background-image: linear-gradient(to top, lightgrey 0%, lightgrey 1%, #e0e0e0 26%, #efefef 48%, #d9d9d9 75%, #bcbcbc 100%);
+    font-family: sans-serif;
+}
+
+nav {
+    /* 水平居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow-x: hidden;
+    /* 默认宽度80,点击变宽 */
+    width: 80px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,.3);
+    transition: width .6s linear;
+}
+
+nav.active {
+    width: 350px;
+}
+
+nav ul {
+    /* 一个弹性布局,自动平铺? */
+    display: flex;
+    margin: 0;
+    padding: 0;
+    /* 默认宽度为0,点击变宽 */
+    width: 0;
+    transition: width .6s linear;
+}
+
+nav.active ul {
+    width: 100%;
+}
+
+nav ul li {
+    /* 沿着Y轴旋转 */
+    transform: rotateY(0deg);
+    /* 默认字体隐形 */
+    opacity: 0;
+    transition: transform .6s linear,opacity .6s linear;
+}
+
+/* 关键点:字体一边沿Y轴向右旋转,一边逐渐消失 */
+nav.active ul li {
+    transform: rotateY(360deg);
+    opacity: 1;
+}
+
+nav ul a {
+    margin: 0 10px;
+    color: #000;
+}
+
+button.icon {
+    position: relative;
+    padding: 0;
+
+    width: 30px;
+    height: 30px;
+    border: 0;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.icon:focus {
+    outline: 0;
+}
+
+/* 默认状态下: 两条杠 */
+.icon .line {
+    position: absolute;
+    top: 10px;
+    left: 5px;
+    width: 20px;
+    height: 2px;
+    background-color: grey;
+    transition: transform .6s linear;
+}
+/* 第一条 top:10,第二条 bottom:10 */
+.icon .line2 {
+    top: auto;
+    bottom: 10px;
+}
+
+/* 关键点:旋转的角度,以及移动的距离 如何精准计算 */
+/* 765 = 360 * 2 + 45度: 旋转两圈加一个直角,再变成 X的一半 */
+/* 再通过调整 translateY 把两根线叠在一起,变成一个X */
+nav.active .icon .line1 {
+    transform: rotate(-765deg) translateY(5.5px);
+}
+
+nav.active .icon .line2 {
+    transform: rotate(765deg) translateY(-5.5px);
+}

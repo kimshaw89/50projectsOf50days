@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css?family=Heebo:300&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+/* html中 root 就代表 html */
+:root {
+    --primary-color: #000;
+    --secondary-color: #fff;
+}
+
+html {
+    transition: all .5s ease-in
+}
+
+html.dark {
+    --primary-color: #fff;
+    --secondary-color: #333;
+}
+
+html.dark {
+    color: var(--primary-color);
+    background-color: var(--secondary-color);
+}
+
+body {
+    /* 水平居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+    margin: 0;
+    height: 100vh;
+    font-family: 'Heebo', sans-serif;
+}
+
+/* 按钮 */
+.toggle {
+    position: absolute;
+    top: 100px;
+    padding: 8px 12px;
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border: 0;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.toggle:focus {
+    outline: none;
+}
+
+/* 钟 容器 */
+.clock-container {
+    /* 弹性 垂直 贴边居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* 钟 */
+.clock {
+    position: relative;
+    width: 200px;
+    height: 200px;
+}
+
+.needle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    /* 此处应为 指针的 宽度 和 长度 */
+    width: 3px;
+    height: 56px;
+    background-color: var(--primary-color);
+    /* 关键点:旋转围着 指针尾部(即为钟心) */
+    transform-origin: bottom center;
+    transition: all .5s ease-in;
+}
+
+/* 关键点:时针/分针/秒钟 开始的位置 */
+/* 时针:12点位置 */
+.needle.hour {
+    transform: translate(-50%, -100%) rotate(0deg);
+}
+
+/* 分针:12点位置 */
+.needle.minute {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 100px;
+}
+
+/* 秒针:12点位置 */
+.needle.second {
+    transform: translate(-50%, -100%) rotate(0deg);
+    height: 100px;
+    background-color: aqua;
+}
+
+/* 钟心 */
+.center-point {
+    /* 中心居中 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    transform: translate(-50%, -50%);
+    background-color: aqua;
+    border-radius: 50%;
+}
+
+/* 钟心中心还有个一半大小的黑点    (这个细节真有意思) */
+.center-point::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+}
+
+/* 具体时间 */
+.time {
+    font-size: 60px;
+}
+
+/* 日期 */
+.date {
+    color: #aaa;
+    font-size: 14px;
+    /* 字符间距 */
+    letter-spacing: .3px;
+    /* 文本转换 英文全大写 */
+    /* text-transform: uppercase; */
+}
+
+/* 日期中最后一位:天 */
+.date .circle {
+    /* 子元素居中 */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: 18px;
+    height: 18px;
+    line-height: 18px;
+    font-size: 12px;
+    /* 白底黑字 或 黑底白字 */
+    color: var(--secondary-color);
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    transition: all .5s ease-in;
+}

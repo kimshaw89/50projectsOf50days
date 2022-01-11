@@ -1,0 +1,65 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap'); */
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    /* 字体略去 */
+    /* font-family: 'Roboto', sans-serif; */
+
+    /* 背景图片:线性渐变 */
+    background-image: linear-gradient(#e66465, #9198e5);
+    overflow: hidden;
+}
+
+.search {
+    position: relative;
+    height: 50px;
+}
+
+.search .input {
+    padding: 15px;
+    height: 50px;
+    width: 50px;
+    border: 0;
+    font-size: 18px;
+    background-color: #fff;
+    transition: width .3s ease;
+}
+
+.search .btn {
+    /* 关键点:盖住输入框 */
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    height: 50px;
+    width: 50px;
+    font-size: 24px;
+    background-color: #fff;
+    border: 0;
+    cursor: pointer;
+    transition: transform .3s ease;
+}
+
+.input:focus,
+.btn:focus {
+    outline: 0;
+}
+
+.search.active .input {
+    width: 200px;
+}
+
+.search.active .btn {
+    /* 关键点2:向右滑200像素-2个边框1像素=198像素 */
+    transform: translateX(198px);
+    /* 如果设置200像素,动画过程会闪过一条缝,应该就是边框 */
+}

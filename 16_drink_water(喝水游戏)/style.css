@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,600&display=swap');
+
+:root {
+    --border-color: #144fc6;
+    --fill-color: #6ab3f8
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    /* 垂直居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 40px;
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    background-color: #3494e4;
+}
+
+h1 {
+    margin-top: 10px;
+}
+
+h3 {
+    font-weight: 400;
+    margin: 10px 0;
+}
+
+/* 大水瓶 */
+.cup {
+    /* 垂直弹性布局,但不居中? */
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    margin: 30px 0;
+    width: 150px;
+    height: 330px;
+    border: solid 4px var(--border-color);
+    /* 关键点:如何做出一个瓶子形状(顺时针四个角) */
+    border-radius: 0 0 40px 40px;
+    color: var(--border-color);
+    background-color: #fff;
+}
+
+/* 大水瓶内分为两部分:上为remain大瓶子剩余多少升,下为percentage百分比水 */
+.remained {
+    /* 垂直居中 */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* 关键点:默认全占flex份数,这样.percentage属性才能通过高度控制水占比 */
+    flex: 1;
+    transition: .3s ease;
+}
+
+.remained span {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.remained small {
+    font-size: 12px;
+}
+/* 大瓶子已装的水 百分比 */
+.percentage {
+    /* 内部文字水平居中 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* 通过 高度 来控制水占比 */
+    height: 0;
+    font-size: 30px;
+    font-weight: bold;
+    background-color: var(--fill-color);
+    transition: .3s ease;
+}
+
+p.text {
+    text-align: center;
+    margin: 0 0 5px;
+}
+
+/* 小水瓶的容器 */
+.cups {
+    /* 小水瓶 水平居中加换行 */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    width: 280px;
+}
+
+/* 小水瓶 */
+.cup.cup-small {
+    /* 文字水平居中 */
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    width: 50px;
+    height: 95px;
+    text-align: center;
+    font-size: 14px;
+    background-color: rgba(255,255,255,.9);
+    border-radius: 0 0 15px 15px;
+    cursor: pointer;
+    transition: .3s ease;
+}
+
+/* 小水瓶加满水后 */
+.cup.cup-small.full {
+    color: #fff;
+    background-color: var(--fill-color);
+}

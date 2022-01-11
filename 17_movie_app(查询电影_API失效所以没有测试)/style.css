@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+:root {
+    --primary-color: #551A8B;
+    --secondary-color: #9B30FF;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--primary-color);
+}
+
+header {
+    display: flex;
+    /* 从尾到头 */
+    justify-content: flex-end;
+    padding: 1rem;
+    background-color: var(--secondary-color);
+}
+
+.search {
+    padding: .5rem 1rem;
+    font-family: inherit;
+    font-size: 1rem;
+    color: #fff;
+    border: solid 2px var(--primary-color);
+    border-radius: 50px;
+    background-color: transparent;
+}
+
+.search::placeholder {
+    color: #999;
+}
+
+.search:focus {
+    outline: 0;
+    background-color: var(--primary-color);
+}
+
+/* 内容区域 */
+main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.movie {
+    position: relative;
+    margin: 1rem;
+    overflow: hidden;
+
+    background-color: var(--secondary-color);
+    border-radius: 3px;
+    box-shadow: 0 4px 5px rgba(0, 0, 0, .2);
+}
+
+.movie img {
+    width: 100%;
+}
+
+.movie-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem 1rem 1rem;
+    /* 设置网格行与列之间的间隙 */
+    gap: .2rem;
+    /* 文本字符间距 */
+    letter-spacing: .5px;
+}
+
+.movie-info h3 {
+    margin-top: 0;
+}
+
+.movie-info span {
+    padding: .25rem .5rem;
+    font-weight: bold;
+    border-radius: 3px;
+    background-color: var(--primary-color);
+}
+
+.movie-info span.green {
+    color: lightgreen;
+}
+
+.movie-info span.orange {
+    color: orange;
+}
+
+.movie-info span.red {
+    color: red;
+}
+
+.overview {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    padding: 2rem;
+    min-height: 100%;
+
+    overflow-y: auto;
+    transform: translateY(101%);
+    transition: transform .3s ease-in;
+}
+
+.movie:hover .overview {
+    transform: translateY(0);
+}

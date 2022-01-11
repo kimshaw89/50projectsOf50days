@@ -1,0 +1,80 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+    margin: 0;
+    background-color: gray;
+}
+
+.kinetic {
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.kinetic::before,
+.kinetic::after {
+    content: '';
+    /* 为了不占用空间 */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 0;
+    height: 0;
+        /* 4个三角形组成的正方形 */
+    border: solid 50px transparent;
+    border-bottom-color: #fff;
+    /* 动画名称  动画持续时间  曲线  次数  延迟时间 */
+    /* 关键点:延迟0.5秒才能让2个三角形不重合在一起 */
+    /* 注意:延迟时间必须=动画持续时间/4 */
+    animation: rotateA 2s linear infinite .5s;
+}
+
+.kinetic::after {
+    transform: rotate(90deg);
+    /* 注意动画时间为2s才会形成碰撞翻转的样子, */
+    animation: rotateB 2s linear infinite;
+}
+
+/* 两个关键帧函数,如果只有0,50,100三个关键帧则动画变成平滑移动 */
+@keyframes rotateA {
+
+    0%,
+    25% {
+        transform: rotate(0deg);
+    }
+
+    50%,
+    75% {
+        transform: rotate(180deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* B动画比A动画多90度,并且先0.5秒开始移动 */
+@keyframes rotateB {
+
+    0%,
+    25% {
+        transform: rotate(90deg);
+    }
+
+
+    50%,
+    75% {
+        transform: rotate(270deg);
+    }
+
+    100% {
+        transform: rotate(450deg);
+    }
+}

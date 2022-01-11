@@ -1,0 +1,116 @@
+* {
+    box-sizing: border-box;
+}
+
+ul {
+    padding: 0;
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+}
+
+.logo {
+    width: 150px;
+}
+
+.nav-btn {
+    font-size: 20px;
+    border: 0;
+    background-color: #fff;
+    cursor: pointer;
+}
+
+.open-btn {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+/* 三层导航栏 */
+/* 关键点之弹出原理:X轴左移100%,再设置延迟时间不同,分别弹出与缩回 */
+/* 注意:弹出和缩回的时间差顺序是相反的 */
+.nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    transform: translateX(-100%);
+    transition: transform .3s ease-in-out;
+}
+
+.nav.visible {
+    transform: translateX(0);
+}
+
+/* 最外层:黑色(延迟0.4s) */
+.nav-black {
+    width: 60%;
+    min-width: 320px;
+    max-width: 480px;
+    background-color: black;
+    /* 此延迟乃是缩回,下面那个才是弹出 */
+    transition-delay: .4s;
+}
+
+.nav-black.visible {
+    transition-delay: 0s;
+}
+
+.nav-red {
+    /* 此宽度乃是黑色nav的95% */
+    width: 95%;
+    background-color: red;
+    /* 缩回去的时间比黑色要快0.2s */
+    transition-delay: .2s;
+}
+
+.nav-red.visible {
+    /* 弹出来的时间反而比黑色慢0.2s */
+    transition-delay: .2s;
+}
+
+.nav-white {
+    position: relative;
+    padding: 40px;
+    width: 95%;
+    background-color: #fff;
+    /* 白色nav缩回最快,弹出最慢,与黑色nav相反 */
+    transition-delay: 0s;
+}
+
+.nav-white.visible {
+    transition-delay: .4s;
+}
+
+.close-btn {
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    opacity: .3;
+}
+
+/* 子选项 ul */
+.list li {
+    margin: 20px 0;
+}
+
+.list li a {
+    font-size: 14px;
+    color: rgb(34, 31, 31);
+}
+
+.list ul {
+    padding-left: 20px;
+}

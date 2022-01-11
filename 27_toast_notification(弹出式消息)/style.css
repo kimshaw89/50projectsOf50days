@@ -1,0 +1,64 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    /* 041 酸酸甜甜就是我 */
+    background-image: linear-gradient(to left, #37ecba 0%, #72afd3 100%);
+    font-family: sans-serif;
+}
+
+.btn {
+    padding: 1rem;
+    border: 0;
+    font-weight: bold;
+    color: #fff;
+    background-color: transparent;
+    box-shadow: 0 2px 10px rgba(0,0,0,.3);
+    cursor: pointer;
+}
+
+.btn:active {
+    transform: scale(0.98);
+}
+
+#toasts {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    display: flex;
+    flex-direction: column;
+    /* 排列方式:从下往上 */
+    align-items: flex-end;
+}
+
+/* 具体消息框,通过js生成 */
+.toast {
+    margin: .5rem;
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.toast.info {
+    color: cornflowerblue;
+}
+
+.toast.success {
+    color: green;
+}
+
+.toast.warn {
+    color: orange;
+}
+
+.toast.error {
+    color: red;
+}

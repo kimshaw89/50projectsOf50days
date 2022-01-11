@@ -1,0 +1,175 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    overflow: hidden;
+    height: 100vh;
+}
+
+h4 {
+    margin: 5px;
+    font-size: 20px;
+    text-transform: uppercase;
+}
+
+/* 计数器 */
+.counter {
+    /* 固定居中 */
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.counter.hide {
+    transform: translate(-50%, 50%) scale(0);
+    animation: hide .2s ease-out
+}
+
+@keyframes hide {
+    from {
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    to {
+        transform: translate((-50%, -50%) scale(0));
+    }
+}
+
+/* 倒计时的数字 */
+.nums {
+    position: relative;
+    overflow: hidden;
+    width: 250px;
+    height: 50px;
+    font-size: 50px;
+    color: lightskyblue;
+}
+
+/* 具体数字 */
+.nums span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(120deg);
+    transform-origin: bottom center;
+}
+
+/* 跳出来的那个数字 */
+.nums span.in {
+    transform: translate(-50%, -50%) rotate(0deg);
+    animation: goIn .5s ease-in-out;
+}
+
+/* 跳回去的其他的数字 */
+.nums span.out {
+    animation: goOut .5s ease-in-out
+}
+
+/* 跳出来的动画很有意思,回弹一下 */
+@keyframes goIn {
+    from {
+        transform: translate(-50%, -50%) rotate(120deg);
+    }
+
+    30% {
+        transform: translate(-50%, -50%) rotate(-20deg);
+    }
+
+    40% {
+        transform: translate(-50%, -50%) rotate(10deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+}
+
+/* 跳回去的动画也是一样,先虚晃一枪再缩回去 */
+@keyframes goOut {
+    from {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+
+    60% {
+        transform: translate(-50%, -50%) rotate(20deg);
+    }
+
+    to {
+        transform: translate(-50%, -50%) rotate(-120deg);
+    }
+}
+
+/* GO和REPLAY */
+.final {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, -50%) scale(0);
+}
+
+.final.show {
+    transform: translate(-50%, -50%) scale(1);
+    animation: show .2s ease-out
+}
+
+/* 倒计时结束后,弹出 再试一次 的按钮 */
+@keyframes show {
+    from {
+        transform: translate(-50%, -50%) scale(0);
+    }
+
+    35% {
+        transform: translate(-50%, -50%) scale(1.4);
+    }
+
+    to {
+        transform: translate((-50%, -50%) scale(1));
+    }
+}
+
+/* 重播按钮 */
+.final .replay {
+    display: inline-block;
+    padding: 5px;
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    background-color: lightskyblue;
+    text-align: center;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+/* 字体 */
+.replay span {
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    transition: .3s;
+}
+
+/* >>符号 */
+.replay span::after {
+    content: "\00bb";
+    position: absolute;
+    top: 0;
+    right: -20px;
+    opacity: 0;
+    transition: .5s;
+}
+
+.replay:hover span {
+    /* 悬停时,让出右边距,显示出>> */
+    padding-right: 25px;
+}
+
+.replay:hover span::after {
+    /* >>可见,并回归原位 */
+    right: 0;
+    opacity: 1;
+}

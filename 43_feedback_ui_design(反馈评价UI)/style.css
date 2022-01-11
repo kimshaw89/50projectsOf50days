@@ -1,0 +1,97 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    overflow: hidden;
+    /* 052 仁慈而又坚强 */
+    background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+}
+
+.panel-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px;
+    max-width: 400px;
+    /* =90% */
+    font-size: .9em;
+    text-align: center;
+    background-color: #fff;
+    border: 0;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .3);
+}
+
+.panel-container strong {
+    line-height: 1.5em;
+}
+
+/* 评级 */
+.ratings-container {
+    display: flex;
+    margin: 20px 0;
+}
+
+.rating {
+    flex: 1;
+    margin: 10px 5px;
+    padding: 20px;
+    cursor: pointer;
+}
+
+.rating:hover,
+.rating.active {
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+}
+
+.rating img {
+    width: 40px;
+}
+
+.rating small {
+    display: inline-block;
+    margin-top: 10px;
+    width: 40px;
+    color: #999;
+}
+
+.rating:hover small,
+.rating.active small{
+    color: #111;
+}
+
+.btn {
+    padding: 10px 30px;
+    color:#fff;
+    background-color: #555;
+    border: 0;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn:focus {
+    outline: none;
+}
+
+.btn:active {
+    transform: scale(.98);
+}
+
+.fa-heart {
+    margin-bottom: 10px;
+    font-size: 1.5em;
+    color: red;
+}
+
+/* 已选中的评价 */
+span.selected {
+    color: red;
+}
